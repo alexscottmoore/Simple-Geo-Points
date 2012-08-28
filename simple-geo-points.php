@@ -13,12 +13,16 @@ include "simple-geo-points.php";
 $locations = array("30 Rockefeller Plaza, New York, NY 10012", "1600 Pennsylvania Avenue, Washington, DC 20500", "Cathedral of Learning, Pittsburgh, PA 15260", "44432");
 
 echo "Distance (km): ".geoDistance($locations,"km");
-echo "<br />";
+// Distance (km): 850.478
+
 echo "Distance as the crow flies (mi): ".geoDistance($locations,"m",true);
-echo "<br />";
+// Distance as the crow flies (mi): 441.13483543075
+
 echo "Duration (h:m): ".geoDuration($locations,"hm");
-echo "<br />";
+// Duration (h:m): 10:16
+
 echo "Duration (m): ".geoDuration($locations,"m");
+// Duration (m): 616.11666666667
 
 */
 function geoDistance($locations, $unit="km", $asTheCrowFlies=false) {

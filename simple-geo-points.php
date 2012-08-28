@@ -21,7 +21,7 @@ echo "<br />";
 echo "Duration (m): ".geoDuration($locations,"m");
 
 */
-function geoDistance($locations, $unit="km", $crowFlies=false) {
+function geoDistance($locations, $unit="km", $asTheCrowFlies=false) {
 	foreach ($locations as $location) {
 		if (!isset($start)) {
 			$distance = 0;
@@ -30,7 +30,7 @@ function geoDistance($locations, $unit="km", $crowFlies=false) {
 		else {
 			$end = urlencode($location);
 			$xml = simplexml_load_file("http://maps.google.com/maps/api/directions/xml?origin=".$start."&destination=".$end."&sensor=false");
-			if ($crowFlies==true) {
+			if ($asTheCrowFlies==true) {
 				$lat1 = (float)$xml->route->leg->start_location->lat;
 				$lng1 = (float)$xml->route->leg->start_location->lng;
 				$lat2 = (float)$xml->route->leg->end_location->lat;

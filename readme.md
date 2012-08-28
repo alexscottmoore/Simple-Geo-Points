@@ -4,6 +4,10 @@ Simple Geo Points contains two PHP functions which return total driving distance
 
 Simple Geo Points aims to simplify the common task, "How do I get the distance between two points?"  It answers this question in terms of distance between two latitude/longitude pairs ("as the crow flies"), or using real driving routes, or by approximate driving time.  The functions return simple numerical values, in the units of your choice.
 
+#### geoDistance($locations, $unit="km", $asTheCrowFlies=false)
+#### geoDuration($locations, $unit="hm")
+
+
 In theory, any number of locations may be included in the locations array, but each location will register as a hit against the Google Maps API geocoding limit of 2,500 per day.  The locations array can be as diverse as Google's geocoder will accept; ie. you can include full addresses, zip codes, landmarks, lat/lng values, etc.
 
 ### Important Legal Reminder
@@ -20,12 +24,17 @@ include "simple-geo-points.php";
 $locations = array("30 Rockefeller Plaza, New York, NY 10012", "1600 Pennsylvania Avenue, Washington, DC 20500", "Cathedral of Learning, Pittsburgh, PA 15260", "44432");
 
 echo "Distance (km): ".geoDistance($locations,"km");
-echo "<br />";
+// Distance (km): 850.478
+
 echo "Distance as the crow flies (mi): ".geoDistance($locations,"m",true);
-echo "<br />";
+// Distance as the crow flies (mi): 441.13483543075
+
 echo "Duration (h:m): ".geoDuration($locations,"hm");
-echo "<br />";
+// Duration (h:m): 10:16
+
 echo "Duration (m): ".geoDuration($locations,"m");
+// Duration (m): 616.11666666667
+
 ?>
 
 ```
